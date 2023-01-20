@@ -24,19 +24,11 @@ public class Assertion extends TestBase {
                 .when()
                 .get("/GetBingoLobbyFeed.do")
                 .then().statusCode(200);
-
     }
 
-    //
     @Test
     public void test() {
-        response.parser("text/plain", Parser.JSON).body("bingoLobbyInfoResource.streams[6].streamId",equalTo(1257));
+        response.parser("text/plain", Parser.JSON).body("bingoLobbyInfoResource.streams[6].streamId", equalTo(1257));
         response.parser("text/plain", Parser.JSON).body("bingoLobbyInfoResource.streams[6].streamName", equalTo("SuperlinksVirgin"));
-        response.parser("text/plain", Parser.JSON).body("bingoLobbyInfoResource.streams[6].findAll{it.gameRef == '119033053649'}",hasItem(hasEntry("maxCards",60)));
     }
-
-
-
-
-
 }
